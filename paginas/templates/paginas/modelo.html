@@ -16,31 +16,23 @@
 
 <body>
 
-    {% block menu %}
+ {% block menu %}
     <div class="bg-secondary">
-        Menu
+        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
     </div>
+ {% endblock %}
+
+<div class="container">
+    {% block conteudo %}
+        
     {% endblock %}
+</div>
 
-    {% block destaque %}
-    <div class="bg-light">
-        Imagens/Figuras
-    </div>
-    {% endblock %}
-
-    <div class="container">
-        {% block conteudo %}
-        <h3>Template Geral</h3>
-
-        <p>Conteúdo do site</p>
-        {% endblock %}
-    </div>
-
-    {% block rodape %}
+{% block rodape %}
     <div class="bg-secondary">
-        Rodapé
+       
     </div>
-    {% endblock %}
+{% endblock %}
 
     <script src="%static 'js/jquery-3.4.1.min.js' %"> </script>
     <script src="%static 'js/popper.js' %"> </script>
