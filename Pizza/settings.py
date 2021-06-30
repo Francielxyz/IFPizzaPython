@@ -25,7 +25,7 @@ SECRET_KEY = ')nr(b^yoeu#vq_(71ma-sn&zq@@3)uz%qzpcbg&$+kj$lxeym4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'paginas.apps.PaginasConfig',
+    'cadastro.apps.CadastroConfig',
 ]
 
 MIDDLEWARE = [
