@@ -3,11 +3,11 @@
 {% load static %}
 
 {% block titulo %}
-<title>Exclusão</title>
+<title>Cadastro</title>
 {% endblock %}
 
 {% block conteudo %}
-<h4>Excluir Registros</h4>
+<h4>Cadastrar Pizza</h4>
 <H5>
     <p class="lead">
         Preencha todos os campos
@@ -16,19 +16,14 @@
 
 <hr>
 
-<form action="" method="POST">
-
-    <P>
-        Deseja Excluir o Registro: <strong>{{ object }}</strong>
-    </P>
-
+<form>
     <!--Token de validação para segurança-->
     {% csrf_token %}
 
     <!-- Buscas os campos que eu add em view -->
     {{ form.as_p }}
 
-    <button type="submit" class="btn btn-danger">Excluir</button>
+    <button type="submit" class="btn btn-success">Cadastrar Pizza</button>
 
 </form>
 {% endblock %}

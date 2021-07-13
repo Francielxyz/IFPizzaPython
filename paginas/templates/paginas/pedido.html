@@ -6,58 +6,41 @@
 <title>Pedido</title>
 {% endblock %}
 
-{% block menu %}
-<div class="bg-danger">
-    <nav class="navbar navbar-expand-lg navbar-light corSecudaria">
-        <a class="navbar-brand textBranco" href="#">Pizza IF</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto"></ul>
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link btn-sm btn-outline-dark" href="{% url 'inicio' %}">
-                        Inicio
-                    </a>
-                </li>
-            </ul>
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link btn-sm btn-outline-dark" href="{% url 'pedido' %}">
-                        Pedido
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-</div>
-{% endblock %}
-
 {% block conteudo %}
 
 <body>
     <main role="main">
         <div class="container marketing">
-            
+
             <!-- Three columns of text below the carousel -->
             <div class="row">
                 <div class="col-lg-4">
                     <!-- src="{% static 'img/pizza.png' %}" <img src="{% static 'img/pizza.png' %}" alt="">-->
                     <img src="{% static 'img/pizza.png' %}" class="rounded-circle" width="140" height="140">
-                    <!--
-                    <svg class="rounded-circle" width="140" height="140">
-                        
-                        <rect width="100%" height="100%" fill="#777" />
-                    </svg>
-                    -->
+
                     <h2>Pizza Queijo</h2>
                     <p>Molho de tomate, mussarela, provolone, parmesão, requeijão, orégano e azeitonas.</p>
                     <p><a class="btn btn-secondary" href="#" role="button"> Selecionar &raquo;</a></p>
                 </div>
                 
+                <div class="col-lg-4">
+                    <!-- src="{% static 'img/pizza.png' %}" <img src="{% static 'img/pizza.png' %}" alt="">-->
+                    <img src="{% static 'img/pizza.png' %}" class="rounded-circle" width="140" height="140">
+
+                    <h2>Pizza Queijo</h2>
+                    <p>Molho de tomate, mussarela, provolone, parmesão, requeijão, orégano e azeitonas.</p>
+                    <p><a class="btn btn-secondary" href="#" role="button"> Selecionar &raquo;</a></p>
+                </div>
+
+                <div class="col-lg-4">
+                    <!-- src="{% static 'img/pizza.png' %}" <img src="{% static 'img/pizza.png' %}" alt="">-->
+                    <img src="{% static 'img/pizza.png' %}" class="rounded-circle" width="140" height="140">
+
+                    <h2>Pizza Queijo</h2>
+                    <p>Molho de tomate, mussarela, provolone, parmesão, requeijão, orégano e azeitonas.</p>
+                    <p><a class="btn btn-secondary" href="#" role="button"> Selecionar &raquo;</a></p>
+                </div>
+
                 <!-- 
                 <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500"
                     xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"
@@ -80,11 +63,11 @@
                         tortor mauris condimentum nibh.</p>
                     <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
                 </div>
+
+                <hr class="featurette-divider">
                 -->
             </div><!-- /.row -->
 
-            <hr class="featurette-divider">
-            <hr class="featurette-divider">
         </div>
 </body>
 

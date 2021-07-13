@@ -7,7 +7,7 @@ class Pedido(models.Model):
     enderecoBairro = models.CharField(max_length=50, verbose_name="Bairro")
 
     def __str__(self):
-        return "{} / {}".format(self.enderecoRua, self.enderecoNum)
+        return "{}, Nº {} - {}".format(self.enderecoRua, self.enderecoNum, self.enderecoBairro)
 
 class Produto(models.Model):
     nome = models.CharField(max_length=50)
@@ -15,7 +15,7 @@ class Produto(models.Model):
     descricao = models.CharField(max_length=250)
 
     def __str__(self):
-        return "{}, R$ {} + {}".format(self.nome, self.preco, self.descricao)
+        return "{} - {} = R$ {}".format(self.nome, self.descricao, self.preco)
 
 class Pedido_Produto(models.Model):
     quantidade = models.IntegerField()

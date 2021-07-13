@@ -1,0 +1,23 @@
+{% extends 'paginas/modelo.html' %}
+
+{% load static %}
+
+{% block titulo %}
+<title>Cadastro</title>
+{% endblock %}
+
+{% block conteudo %}
+<h4>Endereço de Entrega</h4>
+<hr>
+
+<form>
+    <!--Token de validação para segurança-->
+    {% csrf_token %}
+
+    <!-- Buscas os campos que eu add em view -->
+    {{ form.as_p }}
+
+    <button type="submit" class="btn btn-success">Finalizar Pedido</button>
+
+</form>
+{% endblock %}

@@ -9,13 +9,13 @@ from django.urls import reverse_lazy
 class PedidoCreate(CreateView):
     model = Pedido
     fields = ["enderecoRua", "enderecoNum", "enderecoBairro"]
-    template_name = "cadastro/form.html"
+    template_name = "cadastro/form-pedido.html"
     success_url = reverse_lazy("index")
 
 class ProdutoCreate(CreateView):
     model = Produto
     fields = ["nome", "preco", "descricao"]
-    template_name = "cadastro/form.html"
+    template_name = "cadastro/form-produto.html"
     success_url = reverse_lazy("index")
 
 ############# Update #############

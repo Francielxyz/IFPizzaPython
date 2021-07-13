@@ -1,7 +1,7 @@
-
 /* 
 Cores do IFPR 
 */
+
 .bg-ifpr {
     background-color: #007834;
 }
@@ -13,6 +13,7 @@ Cores do IFPR
 .border-ifpr {
     border-color: #007834;
 }
+
 .bg-ifpr-escuro {
     background-color: #315C23;
 }
@@ -25,10 +26,10 @@ Cores do IFPR
     border-color: #315C23;
 }
 
-
 /* 
 Tamanhos diferentes para fontes 
 */
+
 .font-75 {
     font-size: 75%;
 }
@@ -49,52 +50,51 @@ Tamanhos diferentes para fontes
     font-size: 175%;
 }
 
-
 /* 
 Formatação do DataTable 
 */
-table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > td:first-child::before,
-table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > th:first-child::before {
+
+table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td:first-child::before, table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>th:first-child::before {
     top: 15px !important;
 }
-
 
 /* 
 Personalização da Barra de menu pra ficar igual do site 
 */
+
 .navbar {
     padding: 0 !important;
 }
 
-.navbar .navbar-brand{
+.navbar .navbar-brand {
     padding-left: 10px;
 }
 
-.navbar a.nav-link{
+.navbar a.nav-link {
     color: white !important;
 }
 
-.navbar .nav-item{
+.navbar .nav-item {
     padding: 3px 5px;
 }
-
-.navbar .nav-item:hover{
-    background-color: #315C23;
-}
-
 
 /* 
 Alerta na validação dos formulários (login com senha errada, por exemplo) 
 */
+
 .alert dl, .alert ol, .alert ul {
     margin-top: 0;
     margin-bottom: 0;
 }
 
+.textBranco {
+    color: white !important;
+}
 
 /*
 Largura máxima das tabelas para não ficar mal formatada
 */
-table td{
+
+table td {
     max-width: 500px;
 }

@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="Rafael H. D. Zottesso">
+    <meta name="author" content="Franciel Ruam Ferreira Santos">
 
     {% block titulo %}
     <title>:: SisProg ::</title>
@@ -21,7 +21,7 @@
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
 
-    <!-- CSS adicional -->
+    <!-- CSS adicional-->
     <link href="{% static 'css/ifpr.css' %}" rel="stylesheet">
 
     <!-- Importação do Datatables -->
@@ -54,8 +54,33 @@
 
         <!-- Bloco com o menu principal -->
         {% block menu %}
-        <div class="bg-secondary">
-            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+        <div class="bg-danger">
+            <nav class="navbar navbar-expand-lg navbar-light corSecudaria">
+                <a class="nav-link textBranco" href="{% url 'inicio' %}">Pizza IF</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto"></ul>
+                    <ul class="navbar-nav">
+                        <li class="">
+                            <a class="nav-link btn-sm btn-outline-dark" href="{% url 'inicio' %}">
+                                Inicio
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="">
+                            <a class="nav-link btn-sm btn-outline-dark" href="{% url 'pedido' %}">
+                                Pedido
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
         </div>
         {% endblock %}
 
@@ -76,9 +101,7 @@
             <div class="row">
                 <div class="mx-auto">
                     <p>
-                        <font style="vertical-align: inherit;">
-                            <font style="vertical-align: inherit;">Desenvolvido por</font>
-                        </font>
+                        <font style="vertical-align: inherit;">Desenvolvido por</font>
                         <a href="https://www.linkedin.com/in/franciel-ruam-995644174/">
                             <font style="vertical-align: inherit;"> Franciel Ruam </font>
                         </a>
