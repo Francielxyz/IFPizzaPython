@@ -1,42 +1,108 @@
 {% load static %}
-<!DOCTYPE html>
-<html lang="pt-br">
+
+<!doctype html>
+<html lang="pt-br" class="h-100">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Rafael H. D. Zottesso">
 
     {% block titulo %}
-    <title>Modelo</title>
+    <title>:: SisProg ::</title>
     {% endblock %}
 
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <!-- Ícone do favicon -->
+    <link href="{% static 'img/favicon.gif' %}" rel="shortcut icon" type="image/x-icon" />
+
+
+    <!-- Importação do Bootstrap 4 e do Font awesome -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
+
+    <!-- CSS adicional -->
+    <link href="{% static 'css/ifpr.css' %}" rel="stylesheet">
+
+    <!-- Importação do Datatables -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.22/datatables.min.css" />
+
+    <!-- Ícone na barra de abas -->
+    <!-- <link rel="shortcut icon" href="{% static 'img/favicon.png' %}"> -->
+
+    <!-- Bloco destinado aos estilos para cada página -->
+    {% block styles %}
+
+    {% endblock %}
+
 </head>
 
-<body>
+<body class="d-flex flex-column h-100">
+    <main role="main" class="flex-shrink-0">
 
- {% block menu %}
-    <div class="bg-secondary">
-        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-    </div>
- {% endblock %}
 
-<div class="container">
-    {% block conteudo %}
-        
+        <!-- Bloco com a logo da cidade -->
+        {% block logo %}
+        <!-- <div class="container-fluid bg-white">
+            <div class="container border-bottom border-light p-3">
+                <img src="{% static 'img/ifpr-logo.png' %}" alt="" style="max-height: 65px;" class="img-fluid">
+            </div>
+
+        </div> -->
+        {% endblock %}
+
+
+        <!-- Bloco com o menu principal -->
+        {% block menu %}
+        <div class="bg-secondary">
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+        </div>
+        {% endblock %}
+
+
+        <!-- Bloco de conteúdo -->
+        <div class="container py-5">
+            {% block conteudo %}
+            <h3>Página inicial</h3>
+            {% endblock %}
+        </div>
+
+    </main>
+
+    <footer class="mt-auto">
+        <!-- Rodapé -->
+        {% block rodape %}
+        <div class="container-fluid bg-danger text-center">
+            <div class="row">
+                <div class="mx-auto">
+                    <p>
+                        <font style="vertical-align: inherit;">
+                            <font style="vertical-align: inherit;">Desenvolvido por</font>
+                        </font>
+                        <a href="https://www.linkedin.com/in/franciel-ruam-995644174/">
+                            <font style="vertical-align: inherit;"> Franciel Ruam </font>
+                        </a>
+                        <font style="vertical-align: inherit;">2021</font>
+                </div>
+            </div>
+        </div>
+        {% endblock %}
+
+    </footer>
+
+
+    <!-- Importação do JS -->
+    <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.22/datatables.min.js"></script>
+
+    <!-- Bloco destinado aos scripts para cada página -->
+    {% block scripts %}
+
     {% endblock %}
-</div>
 
-{% block rodape %}
-    <div class="bg-secondary">
-       
-    </div>
-{% endblock %}
-
-    <script src="%static 'js/jquery-3.4.1.min.js' %"> </script>
-    <script src="%static 'js/popper.js' %"> </script>
-    <script src="%static 'js/bootstrap.min.js' %"> </script>
 </body>
 
 </html>
