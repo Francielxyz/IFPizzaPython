@@ -1,6 +1,6 @@
 from django.urls import path 
 
-from .views import PedidoCreate, ProdutoCreate
+from .views import PedidoCreate, ProdutoCreate, CarrinhoCreate
 from .views import PedidoUpdate, ProdutoUpdate
 from .views import PedidoDelete, ProdutoDelete
 from .views import PedidoList, ProdutoList
@@ -8,6 +8,7 @@ from .views import PedidoList, ProdutoList
 urlpatterns = [
     path('cadastrar/pedido/', PedidoCreate.as_view(), name='cadastrar-pedido'),
     path('cadastrar/produto/', ProdutoCreate.as_view(), name='cadastrar-produto'),
+    path('adicionar/pizza/', CarrinhoCreate.as_view(), name='adicionar-pizza'),
 
     path('atualizar/pedido/<int:pk>/', PedidoUpdate.as_view(), name='atualizar-pedido'),
     path('atualizar/produto/<int:pk>/', ProdutoUpdate.as_view(), name='atualizar-produto'),
