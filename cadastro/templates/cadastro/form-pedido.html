@@ -2,6 +2,8 @@
 
 {% load static %}
 
+{% load crispy_forms_tags %}
+
 {% block titulo %}
 <title>Cadastro</title>
 {% endblock %}
@@ -15,7 +17,7 @@
     {% csrf_token %}
 
     <!-- Buscas os campos que eu add em view -->
-    {{ form.as_p }}
+    {{ form|crispy }}
 
     <button type="submit" class="btn btn-success">Finalizar Pedido</button>
 

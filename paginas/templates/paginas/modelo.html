@@ -64,7 +64,9 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto"></ul>
+                    {% if request.user.is_authenticated %}
+                    <ul class="navbar-nav mr-auto">Olá&nbsp;<strong>{{user.username}}</strong></ul>
+                    {% endif %}
                     <ul class="navbar-nav">
                         <li class="">
                             <a class="nav-link btn-sm btn-outline-dark" href="{% url 'inicio' %}">
@@ -74,8 +76,15 @@
                     </ul>
                     <ul class="navbar-nav">
                         <li class="">
-                            <a class="nav-link btn-sm btn-outline-dark" href="{% url 'pedido' %}">
-                                Pedido
+                            <a class="nav-link btn-sm btn-outline-dark" href="{% url 'adicionar-pizza' %}">
+                                Adicionar Pedido de Pizza
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="">
+                            <a class="nav-link btn-sm btn-outline-dark" href="{% url 'cadastrar-pedido' %}">
+                                Finalizar Pedido
                             </a>
                         </li>
                     </ul>

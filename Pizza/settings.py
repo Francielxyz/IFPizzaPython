@@ -40,7 +40,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'paginas.apps.PaginasConfig',
     'cadastro.apps.CadastroConfig',
+    "crispy_forms",
+    "crispy_bootstrap5",
 ]
+
+# Crispy Forms
+CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
