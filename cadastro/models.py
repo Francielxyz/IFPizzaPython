@@ -13,12 +13,12 @@ class Pedido(models.Model):
         return "{}, Nº {} - {}".format(self.enderecoRua, self.enderecoNum, self.enderecoBairro)
 
 class Produto(models.Model):
-    nome = models.CharField(max_length=50)
+    nome = models.CharField(max_length=50, verbose_name="Sabor")
     preco = models.DecimalField(decimal_places=2, max_digits=5, verbose_name="Preço")
-    descricao = models.CharField(max_length=250)
+    descricao = models.CharField(max_length=250, verbose_name="Ingredientes")
 
     def __str__(self):
-        return "{} - {} = R$ {}".format(self.nome, self.descricao, self.preco)
+        return "{} no Valor de R$ {} / Ingredientes {}".format(self.nome, self.preco, self.descricao)
 
 class Pedido_Produto(models.Model):
     quantidade = models.IntegerField()

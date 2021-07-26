@@ -95,7 +95,6 @@ class CarrinhoCreate(CreateView):
         return url
 
 
-
 ############# Update #############
 class PedidoUpdate(UpdateView):
     model = Pedido
@@ -142,6 +141,7 @@ class ProdutoDelete(DeleteView):
 class PedidoList(ListView):
     model = Pedido
     template_name = "cadastro/listas/form-pedido.html"
+
 
 
 class ProdutoList(ListView):

@@ -23,6 +23,7 @@
 <hr>
 
 <form method="POST">
+
     <!--Token de validação para segurança-->
     {% csrf_token %}
 
@@ -37,6 +38,8 @@
     </div>
     {% endif %}
 
+
+    <!-- <button type="submit" class="btn btn-info">{{ botaoAdd }}</button> -->
     <button type="submit" class="btn btn-success">{{ botao }}</button>
 
 </form>
