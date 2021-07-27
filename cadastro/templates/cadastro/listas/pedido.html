@@ -1,0 +1,70 @@
+{% extends 'paginas/modelo.html' %}
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block titulo %}
+<title>Cadastro</title>
+{% endblock %}
+
+{% block conteudo %}
+<h4>Endereços de Entregas</h4>
+
+<hr>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <tr>
+            <th>Id</th>
+            <th>Endereço</th>
+            <th>Número</th>
+            <th>Bairro</th>
+            <th>Cliente</th>
+            <th>Opções</th>
+        </tr>
+
+        {% for pedido in object_list %}
+        <tr>
+            <td>{{ pedido.id }}</td>
+            <td>{{ pedido.enderecoRua }}</td>
+            <td>{{ pedido.enderecoNum }}</td>
+            <td>{{ pedido.enderecoBairro }}</td>
+            <td>{{ pedido.cliente }}</td>
+            <td>
+                <a href="{% url 'atualizar-pedido' pedido.pk %}" class="btn btn-warning btn-sm" title="Editar">
+                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                </a>
+                <a href="{% url 'excluir-pedido' pedido.pk %}" class="btn btn-danger btn-sm" title="Excluir">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                </a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="3">Nenhum endereço Registrado</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+    <ul class="pagination justify-content-center">
+    
+        {% if page_obj.has_previous %}
+        <li class="page-item"><a class="page-link" href="?page=1">&laquo; Primeira</a></li>
+        <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Anterior</a></li>
+        {% endif %}
+    
+        <li class="page-item">
+            <span class="page-link">Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.</span>
+        </li>
+    
+        {% if page_obj.has_next %}
+        <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Próxima</a></li>
+        <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Última &raquo;</a></li>
+        {% endif %}
+    
+    </ul>
+</div>
+
+{% endblock %}

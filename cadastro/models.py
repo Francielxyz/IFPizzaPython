@@ -38,5 +38,5 @@ class Carrinho(models.Model):
     produto = models.ForeignKey(Produto, on_delete=models.PROTECT)
     cliente = models.ForeignKey(User, on_delete=models.PROTECT)
 
-    def __str__(self):
-        return f"{self.quantidade} x {self.produto} - {self.cliente}"
+    # def __str__(self):+
+        # return f"{self.quantidade} x {self.produto} - {self.cliente}"

@@ -6,6 +6,7 @@ from .models import Pedido, Produto, Pedido_Produto, Carrinho
 from django.urls import reverse_lazy
 
 #Endereço Provavelmente não será adicionando e sim buscado da internet
+############# Create #############
 class PedidoCreate(CreateView):
     model = Pedido
     fields = ["enderecoRua", "enderecoNum", "enderecoBairro"]
@@ -15,8 +16,8 @@ class PedidoCreate(CreateView):
     # Sobrescrever método para enviar dados adicionais ao template
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
-        context["titulo"] = "Novo pedido"
-        context["botao"] = "Fazer pedido"
+        context["titulo"] = "Finalizando Pedido de Pizza"
+        context["botao"] = "Finalizar seu Pedido"
         context["carrinho"] = Carrinho.objects.filter(cliente=self.request.user)
         return context
 
@@ -95,11 +96,11 @@ class CarrinhoCreate(CreateView):
         return url
 
 
-############# Update #############
+############# Update #############------Chamas os templates de form-pedido e form-produto
 class PedidoUpdate(UpdateView):
     model = Pedido
     fields = ["enderecoRua", "enderecoNum", "enderecoBairro"]
-    template_name = "cadastro/form.html"
+    template_name = "cadastro/form-pedido.html"
     success_url = reverse_lazy("inicio")
 
     # Sobrescrever método para enviar dados adicionais ao template
@@ -113,7 +114,7 @@ class PedidoUpdate(UpdateView):
 class ProdutoUpdate(UpdateView):
     model = Produto
     fields = ["nome", "preco", "descricao"]
-    template_name = "cadastro/form.html"
+    template_name = "cadastro/form-produto.html"
     success_url = reverse_lazy("inicio")
 
     # Sobrescrever método para enviar dados adicionais ao template
@@ -128,22 +129,21 @@ class ProdutoUpdate(UpdateView):
 class PedidoDelete(DeleteView):
     model = Pedido
     template_name = "cadastro/form-excluir.html"
-    success_url = reverse_lazy("index")
+    success_url = reverse_lazy("inicio")
 
 
 class ProdutoDelete(DeleteView):
     model = Produto
     template_name = "cadastro/form-excluir.html"
-    success_url = reverse_lazy("index")
+    success_url = reverse_lazy("inicio")
 
 
 ############# Listar #############
 class PedidoList(ListView):
     model = Pedido
-    template_name = "cadastro/listas/form-pedido.html"
-
+    template_name = "cadastro/listas/pedido.html"
 
 
 class ProdutoList(ListView):
     model = Produto
-    template_name = "cadastro/form-produto.html"
+    template_name = "cadastro/listas/produto.html"
