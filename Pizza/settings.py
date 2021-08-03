@@ -38,10 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
+    'crispy_bootstrap5',
+    #Ativação dos módulos de cada página
     'paginas.apps.PaginasConfig',
     'cadastro.apps.CadastroConfig',
-    "crispy_forms",
-    "crispy_bootstrap5",
+    'usuarios.apps.UsuariosConfig',
+
 ]
 
 # Crispy Forms
@@ -132,3 +135,11 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
+
+#Configuração de Autenticação (constantes)
+#redirecionar para a tela de inicio após login
+LOGIN_REDIRECT_URL = 'inicio'
+#redirecionar para a tela de login após sair
+LOGOUT_REDIRECT_URL = 'login'
+#redirecionar para a tela de login após tenta acessar página sem logar
+LOGIN_URL = 'login'
