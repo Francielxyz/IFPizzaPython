@@ -5,9 +5,16 @@ from .models import Pedido, Produto, Pedido_Produto, Carrinho
 
 from django.urls import reverse_lazy
 
+#Impedir que usuários não autenticados acessem uma determinada página
+from django.contrib.auth.mixins import LoginRequiredMixin
+
+#Controle de acesso dos login de adm e cliente
+from braces.views import GroupRequiredMixin
+
 #Endereço Provavelmente não será adicionando e sim buscado da internet
 ############# Create #############
-class PedidoCreate(CreateView):
+class PedidoCreate(LoginRequiredMixin, CreateView):
+    login_url = reverse_lazy('login')
     model = Pedido
     fields = ["enderecoRua", "enderecoNum", "enderecoBairro"]
     template_name = "cadastro/form.html"
@@ -56,7 +63,9 @@ class PedidoCreate(CreateView):
             return self.form_invalid(form)
 
 
-class ProdutoCreate(CreateView):
+class ProdutoCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
+    login_url = reverse_lazy('login')
+    group_required = u"Administrador"
     model = Produto
     fields = ["nome", "preco", "descricao"]
     template_name = "cadastro/form.html"
@@ -70,7 +79,8 @@ class ProdutoCreate(CreateView):
         return context
 
 
-class CarrinhoCreate(CreateView):
+class CarrinhoCreate(LoginRequiredMixin, CreateView):
+    login_url = reverse_lazy('login')
     model = Carrinho
     fields = ["produto", "quantidade"]
     template_name = "cadastro/form.html"
@@ -97,7 +107,8 @@ class CarrinhoCreate(CreateView):
 
 
 ############# Update #############------Chamas os templates de form-pedido e form-produto
-class PedidoUpdate(UpdateView):
+class PedidoUpdate(LoginRequiredMixin, UpdateView):
+    login_url = reverse_lazy('login')
     model = Pedido
     fields = ["enderecoRua", "enderecoNum", "enderecoBairro"]
     template_name = "cadastro/form-pedido.html"
@@ -111,7 +122,9 @@ class PedidoUpdate(UpdateView):
         return context
 
 
-class ProdutoUpdate(UpdateView):
+class ProdutoUpdate(GroupRequiredMixin, LoginRequiredMixin, UpdateView):
+    login_url = reverse_lazy('login')
+    group_required = u"Administrador"
     model = Produto
     fields = ["nome", "preco", "descricao"]
     template_name = "cadastro/form-produto.html"
@@ -126,24 +139,29 @@ class ProdutoUpdate(UpdateView):
 
 
 ############# Delete #############
-class PedidoDelete(DeleteView):
+class PedidoDelete(LoginRequiredMixin, DeleteView):
+    login_url = reverse_lazy('login')
     model = Pedido
     template_name = "cadastro/form-excluir.html"
     success_url = reverse_lazy("inicio")
 
 
-class ProdutoDelete(DeleteView):
+class ProdutoDelete(GroupRequiredMixin, LoginRequiredMixin, DeleteView):
+    login_url = reverse_lazy('login')
+    group_required = u"Administrador"
     model = Produto
     template_name = "cadastro/form-excluir.html"
     success_url = reverse_lazy("inicio")
 
 
 ############# Listar #############
-class PedidoList(ListView):
+class PedidoList(LoginRequiredMixin, ListView):
+    login_url = reverse_lazy('login')
     model = Pedido
     template_name = "cadastro/listas/pedido.html"
 
 
-class ProdutoList(ListView):
+class ProdutoList(LoginRequiredMixin, ListView):
+    login_url = reverse_lazy('login')
     model = Produto
     template_name = "cadastro/listas/produto.html"
