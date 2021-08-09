@@ -2,6 +2,14 @@
 Cores do IFPR 
 */
 
+.link-branco {
+    color: white;
+}
+
+.link-branco:hover {
+    color: #c1c1c1;
+}
+
 .bg-ifpr {
     background-color: #007834;
 }
