@@ -9,27 +9,29 @@
 {% endblock %}
 
 {% block conteudo %}
-<h4>Finalizar Pedido</h4>
+<div class="textBranco">
+    <h4>Finalizar Pedido</h4>
 
-<hr>
+    <hr>
 
-<form action="" method="POST">
+    <form action="" method="POST">
 
-    <!--Token de validação para segurança-->
-    {% csrf_token %}
+        <!--Token de validação para segurança-->
+        {% csrf_token %}
 
-    <!-- Buscas os campos que eu add em view -->
-    {{ form.as_p }}
+        <!-- Buscas os campos que eu add em view -->
+        {{ form.as_p }}
 
-    {% if carrinho %}
-    <div class="border-top border-bottom shadow-sm my-4 p-4">
-        {% for obj in carrinho %}
+        {% if carrinho %}
+        <div class="border-top border-bottom shadow-sm my-4 p-4">
+            {% for obj in carrinho %}
             {{obj.quantidade}} x {{obj.produto}} <br>
-        {% endfor %}
-    </div>
-    {% endif %}
-    
-    <a href="{% url 'adicionar-pizza' %}" class="btn btn-info">Voltar</a>
-    <button type="submit" class="btn btn-success">{{ botao }}</button>
-</form>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <a href="{% url 'adicionar-pizza' %}" class="btn btn-info">Voltar</a>
+        <button type="submit" class="btn btn-success">{{ botao }}</button>
+    </form>
+</div>
 {% endblock %}

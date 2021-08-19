@@ -9,22 +9,24 @@
 {% endblock %}
 
 {% block conteudo %}
-<h4>Atualizar Pizza</h4>
-<hr>
+<div class="textBranco">
+    <h4>Atualizar Pizza</h4>
+    <hr>
 
-<form>
-    <!--Token de validação para segurança-->
-    {% csrf_token %}
+    <form>
+        <!--Token de validação para segurança-->
+        {% csrf_token %}
 
-    <!-- Buscas os campos que eu add em view -->
-    {{ form|crispy }}
+        <!-- Buscas os campos que eu add em view -->
+        {{ form|crispy }}
 
-    <!-- Erro, não esta sendo atualizado o pedido -->
+        <!-- Erro, não esta sendo atualizado o pedido -->
 
-    <p class="lead">
-        <a href="{% url 'listar-produto' %}" class="btn btn-success">Atualizar Pizza</a>
-        <a href="{% url 'listar-produto' %}" class="btn btn-info">Voltar</a>
-    </p>
+        <p class="lead">
+            <a href="{% url 'listar-produto' %}" class="btn btn-success">Atualizar Pizza</a>
+            <a href="{% url 'listar-produto' %}" class="btn btn-info">Voltar</a>
+        </p>
 
-</form>
+    </form>
+</div>
 {% endblock %}

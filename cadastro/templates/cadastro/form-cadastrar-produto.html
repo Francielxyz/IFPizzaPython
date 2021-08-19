@@ -9,36 +9,38 @@
 {% endblock %}
 
 {% block conteudo %}
-<h4>Cadastrar Pizza</h4>
+<div class="textBranco">
+    <h4>Cadastrar Pizza</h4>
 
-{% if form.errors %}
-<div class="alert alert-danger">
-    {{ form.errors }}
+    {% if form.errors %}
+    <div class="alert alert-danger">
+        {{ form.errors }}
+    </div>
+    {% endif %}
+
+    <hr>
+
+
+    <form method="POST">
+        <!--Token de validação para segurança-->
+        {% csrf_token %}
+
+        <!-- Buscas os campos que eu add em view -->
+        {{ form|crispy }}
+
+
+        <p class="lead">
+            <a href="{% url 'listar-produto' %}" class="btn btn-success">Cadastrar Pizzaa</a>
+
+
+            <button type="submit" class="btn btn-success">{{ botao }}</button>
+
+
+            <a href="{% url 'listar-produto' %}" class="btn btn-info">Voltar</a>
+        </p>
+
+
+
+    </form>
 </div>
-{% endif %}
-
-<hr>
-
-
-<form method="POST">
-    <!--Token de validação para segurança-->
-    {% csrf_token %}
-
-    <!-- Buscas os campos que eu add em view -->
-    {{ form|crispy }}
-
-
-    <p class="lead">
-        <a href="{% url 'listar-produto' %}" class="btn btn-success">Cadastrar Pizzaa</a>
-
-
-        <button type="submit" class="btn btn-success">{{ botao }}</button>
-        
-
-        <a href="{% url 'listar-produto' %}" class="btn btn-info">Voltar</a>
-    </p>
-
-    
-
-</form>
 {% endblock %}

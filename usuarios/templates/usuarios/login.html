@@ -39,21 +39,31 @@ la no views de cadastro, este IF realizar esta validação se é usuário adm --
 </div>
 {% else %}
 
-<div class="row">
+<div class="center">
+    <style>
+        body {
+            background-image: url('/static/img/pizza.png');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+        }
+    </style>
+
     <div class="col-md-6 mx-auto">
-        <h3>Autenticação</h3>
+        <a class="nav-link textBranco">
+            <h3>Autenticação</h3>
+        </a>
 
         <hr>
         <form action="" method="POST">
+            <a class="nav-link textBranco">
+                {% csrf_token %}
 
-            {% csrf_token %}
-
-            {{ form|crispy }}
-
-            <button type="submit" class="btn btn-success">Entrar</button>
-
+                {{ form|crispy }}
+                <button type="submit" class="btn btn-light">Entrar</button>
+            </a>
         </form>
     </div>
-{% endif %}
+    {% endif %}
 </div>
 {% endblock %}

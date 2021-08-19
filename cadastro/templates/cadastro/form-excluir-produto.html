@@ -9,33 +9,35 @@
 {% endblock %}
 
 {% block conteudo %}
-<h4>Excluir Registros</h4>
-<H5>
-    <p class="lead">
-        Confirme a Exclusão
-    </p>
-</H5>
+<div class="textBranco">
+    <h4>Excluir Registros</h4>
+    <H5>
+        <p class="lead">
+            Confirme a Exclusão
+        </p>
+    </H5>
 
-<hr>
+    <hr>
 
-<form action="" method="POST">
+    <form action="" method="POST">
 
-    <P>
-        Deseja Excluir o Registro: <strong>{{ object }}</strong>
-    </P>
+        <P>
+            Deseja Excluir o Registro: <strong>{{ object }}</strong>
+        </P>
 
-    <!--Token de validação para segurança-->
-    {% csrf_token %}
+        <!--Token de validação para segurança-->
+        {% csrf_token %}
 
-    <!-- Buscas os campos que eu add em view -->
-    {{ form.as_p }}
-    
+        <!-- Buscas os campos que eu add em view -->
+        {{ form.as_p }}
 
-    <p class="lead">
-        <a href="{% url 'listar-produto' %}" class="btn btn-danger">Excluir</a>
-        <a href="{% url 'listar-produto' %}" class="btn btn-info">Voltar</a>
-        <button type="submit" class="btn btn-success">Excluírr</button>
-    </p>
 
-</form>
+        <p class="lead">
+            <a href="{% url 'listar-produto' %}" class="btn btn-danger">Excluir</a>
+            <a href="{% url 'listar-produto' %}" class="btn btn-info">Voltar</a>
+            <button type="submit" class="btn btn-success">Excluírr</button>
+        </p>
+
+    </form>
+</div>
 {% endblock %}

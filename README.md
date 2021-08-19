@@ -27,30 +27,29 @@
 
 # Rotas
 - Home 
-    -<p>http://localhost:8000/
+    -<p>http://localhost:8000/ (Página Inicial)
 
 - Login
-    -<p>http://localhost:8000/login/
-    -<p>http://localhost:8000/logout/
+    -<p>http://localhost:8000/login/ (Realizar Login)
+    -<p>http://localhost:8000/logout/ (REalizar Logout)
 
 - Cadastrar
-    -<p>http://localhost:8000/cadastrar/pedido/
-    -<p>http://localhost:8000/cadastrar/produto/
-    -<p>http://localhost:8000/adicionar/pizza/
+    -<p>http://localhost:8000/cadastrar/pedido/ (Cadastrar/Finalizar Pedido)
+    -<p>http://localhost:8000/cadastrar/produto/ (Cadastrar Produto/Pizza)
+    -<p>http://localhost:8000/adicionar/pizza/  (Realizar Pedido de Pizza)
 
 - Listar
-    -<p>http://localhost:8000/listar/pedido/
-    -<p>http://localhost:8000/listar/produto/
-    -<p>http://localhost:8000/pedido/
+    -<p>http://localhost:8000/listar/pedido/ (Listar Pedidos)
+    -<p>http://localhost:8000/listar/produto/ (Listar Produtos)
 
 - Atualizar
-    -<p>http://localhost:8000/atualizar/pedido/id{}
-    -<p>http://localhost:8000/atualizar/produto/id{}
+    -<p>http://localhost:8000/atualizar/pedido/id{} (Atualizar Pedido específico com ID)
+    -<p>http://localhost:8000/atualizar/produto/id{} (Atualizar Produto específico com ID)
 
 - Excluír
-    -<p>http://localhost:8000/excluir/pedido/id{}
-    -<p>http://localhost:8000/excluir/produto/id{}
-
+    -<p>http://localhost:8000/excluir/pedido/id{} (Excluir Pedido específico com ID)
+    -<p>http://localhost:8000/excluir/produto/id{} (Excluir Produto específico com ID)
+ 
 
 
 
