@@ -1,0 +1,35 @@
+{% extends 'paginas/modelo.html' %}
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block titulo %}
+<title>Finalizar</title>
+{% endblock %}
+
+{% block conteudo %}
+<h4>Finalizar Pedido</h4>
+
+<hr>
+
+<form action="" method="POST">
+
+    <!--Token de validação para segurança-->
+    {% csrf_token %}
+
+    <!-- Buscas os campos que eu add em view -->
+    {{ form.as_p }}
+
+    {% if carrinho %}
+    <div class="border-top border-bottom shadow-sm my-4 p-4">
+        {% for obj in carrinho %}
+            {{obj.quantidade}} x {{obj.produto}} <br>
+        {% endfor %}
+    </div>
+    {% endif %}
+    
+    <a href="{% url 'adicionar-pizza' %}" class="btn btn-info">Voltar</a>
+    <button type="submit" class="btn btn-success">{{ botao }}</button>
+</form>
+{% endblock %}

@@ -5,17 +5,11 @@
 {% load crispy_forms_tags %}
 
 {% block titulo %}
-<title>Cadastro</title>
+<title>Atualizar</title>
 {% endblock %}
 
 {% block conteudo %}
-<h4>Cadastrar Pizza</h4>
-<H5>
-    <p class="lead">
-        Preencha todos os campos
-    </p>
-</H5>
-
+<h4>Atualizar Pizza</h4>
 <hr>
 
 <form>
@@ -25,7 +19,12 @@
     <!-- Buscas os campos que eu add em view -->
     {{ form|crispy }}
 
-    <button type="submit" class="btn btn-success">Atualizar Pizza</button>
+    <!-- Erro, não esta sendo atualizado o pedido -->
+
+    <p class="lead">
+        <a href="{% url 'listar-produto' %}" class="btn btn-success">Atualizar Pizza</a>
+        <a href="{% url 'listar-produto' %}" class="btn btn-info">Voltar</a>
+    </p>
 
 </form>
 {% endblock %}

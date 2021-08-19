@@ -7,6 +7,7 @@ class Pedido(models.Model):
     enderecoNum = models.IntegerField(verbose_name="Número")
     enderecoBairro = models.CharField(max_length=50, verbose_name="Bairro")
 
+    # Faz com que apenas o usuário possa visualizar o seu Pedido
     cliente = models.ForeignKey(User, on_delete=models.PROTECT)
 
     def __str__(self):

@@ -57,7 +57,8 @@
                     {% endif %}
 
                     <ul class="navbar-nav">
-                        {% if GroupRequiredMixin.group_required == "Administrador" %}
+
+                        
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink"
                                 data-toggle="dropdown">
@@ -68,7 +69,6 @@
                                 <a class="dropdown-item" href="{% url 'listar-produto' %}">Listar Pizza</a>
                             </div>
                         </li>
-                        {% endif %}
 
 
                         <li class="nav-item">
@@ -77,11 +77,11 @@
                             </a>
                         </li>
 
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link btn-sm btn-outline-dark" href="{% url 'pedido' %}">
                                 Nossos Sabores
                             </a>
-                        </li>
+                        </li> -->
                         <li class="nav-item">
                             <a class="nav-link btn-sm btn-outline-dark" href="{% url 'adicionar-pizza' %}">
                                 Realizar Pedido
