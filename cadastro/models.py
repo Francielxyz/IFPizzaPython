@@ -19,7 +19,7 @@ class Produto(models.Model):
     descricao = models.CharField(max_length=250, verbose_name="Ingredientes")
 
     def __str__(self):
-        return "{} no Valor de R$ {} / Ingredientes {}".format(self.nome, self.preco, self.descricao)
+        return "{} no Valor de R$ {} com {}".format(self.nome, self.preco, self.descricao)
 
 class Pedido_Produto(models.Model):
     quantidade = models.IntegerField()

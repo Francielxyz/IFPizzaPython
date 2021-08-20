@@ -19,8 +19,6 @@
     {% endif %}
 
     <hr>
-
-
     <form method="POST">
         <!--Token de validação para segurança-->
         {% csrf_token %}
@@ -30,16 +28,9 @@
 
 
         <p class="lead">
-            <a href="{% url 'listar-produto' %}" class="btn btn-success">Cadastrar Pizzaa</a>
-
-
             <button type="submit" class="btn btn-success">{{ botao }}</button>
-
-
             <a href="{% url 'listar-produto' %}" class="btn btn-info">Voltar</a>
         </p>
-
-
 
     </form>
 </div>

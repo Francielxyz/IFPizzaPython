@@ -11,9 +11,8 @@
 {% block conteudo %}
 <div class="textBranco">
     <h4>Escolha os Sabores</h4>
-
+    
     <hr>
-
     <form action="" method="POST">
 
         <!--Token de validação para segurança-->
@@ -22,15 +21,11 @@
         <!-- Buscas os campos que eu add em view -->
         {{ form.as_p }}
 
+        
         <p class="lead">
+            <a href="{% url 'adicionar-pizza' %}" class="btn btn-warning">Adicionar um Pedido</a>
+            <button type="submit" class="btn btn-success">Realizar Pedido</button>
             <a href="{% url 'inicio' %}" class="btn btn-info">Voltar</a>
-
-            <a href="{% url 'listar-produto' %}" class="btn btn-warning">Adicionar Pedido</a>
-            <a href="{% url 'cadastrar-pedido' %}" class="btn btn-success">Realizar Pedido</a>
-
-
-
-            <button type="submit" class="btn btn-success">Finalizar</button>
         </p>
 
     </form>

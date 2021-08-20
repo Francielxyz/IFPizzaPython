@@ -29,9 +29,9 @@
             {% endfor %}
         </div>
         {% endif %}
-
-        <a href="{% url 'adicionar-pizza' %}" class="btn btn-info">Voltar</a>
+        
         <button type="submit" class="btn btn-success">{{ botao }}</button>
+        <a href="{% url 'adicionar-pizza' %}" class="btn btn-info">Voltar</a>
     </form>
 </div>
 {% endblock %}

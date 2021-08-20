@@ -18,7 +18,7 @@ class PedidoCreate(LoginRequiredMixin, CreateView):
     model = Pedido
     fields = ["enderecoRua", "enderecoNum", "enderecoBairro"]
     template_name = "cadastro/form-finalizar-pedido.html"
-    success_url = reverse_lazy("inicio")
+    success_url = reverse_lazy("listar-produto")
 
     # Sobrescrever método para enviar dados adicionais ao template
     def get_context_data(self, *args, **kwargs):
@@ -69,7 +69,7 @@ class ProdutoCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
     model = Produto
     fields = ["nome", "preco", "descricao"]
     template_name = "cadastro/form-cadastrar-produto.html"
-    success_url = reverse_lazy("inicio")
+    success_url = reverse_lazy("listar-produto")
 
     # Sobrescrever método para enviar dados adicionais ao template
     def get_context_data(self, *args, **kwargs):
@@ -84,7 +84,7 @@ class CarrinhoCreate(LoginRequiredMixin, CreateView):
     model = Carrinho
     fields = ["produto", "quantidade"]
     template_name = "cadastro/form-realizar-pedido.html"
-    success_url = reverse_lazy("inicio") 
+    success_url = reverse_lazy("cadastrar-pedido") 
 
     # Sobrescrever método para enviar dados adicionais ao template
     def get_context_data(self, *args, **kwargs):
@@ -105,7 +105,7 @@ class CarrinhoCreate(LoginRequiredMixin, CreateView):
         return url
 
 
-############# Update #############------Chamas os templates de form-pedido e form-produto
+############# Update #############
 class PedidoUpdate(LoginRequiredMixin, UpdateView):
     login_url = reverse_lazy('login')
     model = Pedido
@@ -127,12 +127,11 @@ class ProdutoUpdate(GroupRequiredMixin, LoginRequiredMixin, UpdateView):
     model = Produto
     fields = ["nome", "preco", "descricao"]
     template_name = "cadastro/form-atualizar-produto.html"
-    success_url = reverse_lazy("inicio")
+    success_url = reverse_lazy("listar-produto")
 
     # Sobrescrever método para enviar dados adicionais ao template
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
-        context["titulo"] = "Atualizar Produto"
         context["botao"] = "Atualizar Pizza"
         return context
 
@@ -150,7 +149,7 @@ class ProdutoDelete(GroupRequiredMixin, LoginRequiredMixin, DeleteView):
     group_required = u"Administrador"
     model = Produto
     template_name = "cadastro/form-excluir-produto.html"
-    success_url = reverse_lazy("inicio")
+    success_url = reverse_lazy("listar-produto")
 
 
 ############# Listar #############
@@ -160,7 +159,9 @@ class PedidoList(LoginRequiredMixin, ListView):
     template_name = "cadastro/listas/pedido.html"
 
 
-class ProdutoList(LoginRequiredMixin, ListView):
+class ProdutoList(GroupRequiredMixin, LoginRequiredMixin, ListView):
     login_url = reverse_lazy('login')
+    group_required = u"Administrador"
     model = Produto
     template_name = "cadastro/listas/produto.html"
+

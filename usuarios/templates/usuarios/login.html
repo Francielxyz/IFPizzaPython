@@ -25,6 +25,7 @@
 <!-- Apenas usuários adm podem acessar tais páginas que foram configuradas
 la no views de cadastro, este IF realizar esta validação se é usuário adm -->
 {% if request.user.is_authenticated %}
+<div class="textBranco">
 <div class="col-md mx-auto">
     <h3>
         <i class="fa fa-exclamation" aria-hidden="true"></i>
@@ -36,6 +37,7 @@ la no views de cadastro, este IF realizar esta validação se é usuário adm --
             Houve algum problema para processar a ação desejada ou você não tem permissão para isso.
         </strong>
     </p>
+</div>
 </div>
 {% else %}
 
