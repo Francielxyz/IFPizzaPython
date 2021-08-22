@@ -8,17 +8,12 @@
 {% load crispy_forms_tags %}
 
 {% block menu %}
-<div class="bg-danger">
-    <nav class="navbar navbar-expand-lg navbar-light corSecudaria">
-        <a class="nav-link textBranco" href="{% url 'inicio' %}">Inicio</a>
-    </nav>
-</div>
+
 {% endblock %}
 
 {% block titulo %}
-    <title>Autenticação</title>
+<title>Autenticação</title>
 {% endblock %}
-
 
 
 {% block conteudo %}
@@ -26,25 +21,26 @@
 la no views de cadastro, este IF realizar esta validação se é usuário adm -->
 {% if request.user.is_authenticated %}
 <div class="textBranco">
-<div class="col-md mx-auto">
-    <h3>
-        <i class="fa fa-exclamation" aria-hidden="true"></i>
-        Ação não Permitida
-    </h3>
-    <hr>
-    <p class="lead">
-        <strong>
-            Houve algum problema para processar a ação desejada ou você não tem permissão para isso.
-        </strong>
-    </p>
-</div>
+    <div class="col-md mx-auto">
+        <h3>
+            <i class="fa fa-exclamation" aria-hidden="true"></i>
+            Ação não Permitida
+        </h3>
+        <hr>
+        <p class="lead">
+            <strong>
+                Houve algum problema para processar a ação desejada ou você não tem permissão para isso.
+            </strong>
+        </p>
+        <a href="{% url 'inicio' %}" class="btn btn-danger">Voltar</a>
+    </div>
 </div>
 {% else %}
 
 <div class="center">
     <style>
         body {
-            background-image: url('/static/img/pizza.png');
+            background-image: url('/static/img/pizzaLogin.png');
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-size: 100% 100%;
@@ -52,20 +48,29 @@ la no views de cadastro, este IF realizar esta validação se é usuário adm --
     </style>
 
     <div class="col-md-6 mx-auto">
-        <a class="nav-link textBranco">
-            <h3>Autenticação</h3>
-        </a>
-
-        <hr>
-        <form action="" method="POST">
-            <a class="nav-link textBranco">
-                {% csrf_token %}
-
-                {{ form|crispy }}
-                <button type="submit" class="btn btn-light">Entrar</button>
+        <div class="textBranco">
+            <a class="nav-link">
+                <h3>Autenticação</h3>
             </a>
-        </form>
+
+            <hr>
+            <form action="" method="POST">
+                <p class="lead">
+                    {% csrf_token %}
+
+                    {{ form|crispy }}
+                    <a href="{% url 'registrar' %}" class="btn btn-info">Registrar</a>
+                    <button type="submit" class="btn btn-success">Entrar</button>
+                </p>
+
+
+            </form>
+        </div>
     </div>
     {% endif %}
 </div>
+{% endblock %}
+
+{% block rodape %}
+
 {% endblock %}

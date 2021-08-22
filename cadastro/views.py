@@ -18,7 +18,7 @@ class PedidoCreate(LoginRequiredMixin, CreateView):
     model = Pedido
     fields = ["enderecoRua", "enderecoNum", "enderecoBairro"]
     template_name = "cadastro/form-finalizar-pedido.html"
-    success_url = reverse_lazy("listar-produto")
+    success_url = reverse_lazy("inicio")
 
     # Sobrescrever método para enviar dados adicionais ao template
     def get_context_data(self, *args, **kwargs):
@@ -153,8 +153,9 @@ class ProdutoDelete(GroupRequiredMixin, LoginRequiredMixin, DeleteView):
 
 
 ############# Listar #############
-class PedidoList(LoginRequiredMixin, ListView):
+class PedidoList(GroupRequiredMixin, LoginRequiredMixin, ListView):
     login_url = reverse_lazy('login')
+    group_required = u"Administrador"
     model = Pedido
     template_name = "cadastro/listas/pedido.html"
 

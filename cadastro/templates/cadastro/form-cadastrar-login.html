@@ -1,0 +1,52 @@
+<!-- import do template geral da aplicação -->
+{% extends 'paginas/modelo.html' %}
+
+<!-- Carregamentos das estilizações do boodtrap/js -->
+{% load static %}
+
+<!-- Formulário no padrão do boodstrap -->
+{% load crispy_forms_tags %}
+
+{% block menu %}
+
+{% endblock %}
+
+{% block titulo %}
+<title>Registrar</title>
+{% endblock %}
+
+
+{% block conteudo %}
+<div class="textBranco">
+    <style>
+        body {
+            background-image: url('/static/img/pizzaRegistrar.png');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+        }
+    </style>
+    <h4>Registrar novo Usuário</h4>
+    
+    <hr>
+    <form action="" method="POST">
+        <b>
+
+        <!--Token de validação para segurança-->
+        {% csrf_token %}
+
+        <!-- Buscas os campos que eu add em view -->
+        {{ form.as_p }}
+        </b>
+        <p class="lead">
+            <a href="{% url 'login' %}" class="btn btn-info">Voltar</a>
+            <button type="submit" class="btn btn-success">Registrar</button>
+        </p>
+
+    </form>
+</div>
+{% endblock %}
+
+{% block rodape %}
+
+{% endblock %}
