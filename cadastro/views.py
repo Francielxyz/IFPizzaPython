@@ -84,12 +84,13 @@ class CarrinhoCreate(LoginRequiredMixin, CreateView):
     model = Carrinho
     fields = ["produto", "quantidade"]
     template_name = "cadastro/form-realizar-pedido.html"
-    success_url = reverse_lazy("cadastrar-pedido") 
+    success_url = reverse_lazy("adicionar-pizza")
 
     # Sobrescrever método para enviar dados adicionais ao template
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
         context["botao"] = "Realizar Pedido"
+        context["carrinho"] = Carrinho.objects.filter(cliente=self.request.user)
         return context
 
     def form_valid(self, form):

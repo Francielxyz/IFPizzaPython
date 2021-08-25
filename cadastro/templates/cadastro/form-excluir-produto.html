@@ -29,7 +29,7 @@
         {% csrf_token %}
 
         <!-- Buscas os campos que eu add em view -->
-        {{ form.as_p }}
+        {{ form|crispy }}
 
 
         <p class="lead">

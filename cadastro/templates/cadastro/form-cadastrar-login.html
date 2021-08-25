@@ -36,7 +36,7 @@
         {% csrf_token %}
 
         <!-- Buscas os campos que eu add em view -->
-        {{ form.as_p }}
+        {{ form|crispy }}
         </b>
         <p class="lead">
             <a href="{% url 'login' %}" class="btn btn-info">Voltar</a>
