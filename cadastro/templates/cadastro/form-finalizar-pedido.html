@@ -24,12 +24,15 @@
 
         {% if carrinho %}
         <div class="border-top border-bottom shadow-sm my-4 p-4">
+
             {% for obj in carrinho %}
-            {{obj.quantidade}} x {{obj.produto}} <br>
+                {{obj.quantidade}} x {{obj.produto}} <br> Total = {{obj.totalPedido}} <br>
+                
             {% endfor %}
+
         </div>
         {% endif %}
-        
+
         <button type="submit" class="btn btn-success">{{ botao }}</button>
         <a href="{% url 'adicionar-pizza' %}" class="btn btn-info">Voltar</a>
     </form>

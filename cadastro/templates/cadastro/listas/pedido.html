@@ -22,7 +22,6 @@
                 <th>Número</th>
                 <th>Bairro</th>
                 <th>Cliente</th>
-                <th>Quantidade</th>
             </tr>
 
             {% for pedido in object_list %}
@@ -32,12 +31,11 @@
                 <td>{{ pedido.enderecoNum }}</td>
                 <td>{{ pedido.enderecoBairro }}</td>
                 <td>{{ pedido.cliente }}</td>
-                <td>{{ produto.nome }}</td>
                 <td>
-                    </a>
-                    <a href="{% url 'atualizar-pedido' pedido.pk %}"  class="btn btn-success btn-sm" title="Editar">
+                    <!-- </a> -->
+                    <!-- <a href="{% url 'atualizar-pedido' pedido.pk %}"  class="btn btn-success btn-sm" title="Editar">
                         <i class="fa fa-pencil" aria-hidden="true"></i>
-                    </a>
+                    </a> -->
                     <!-- <a href="{% url 'excluir-pedido' pedido.pk %}" class="btn btn-danger btn-sm" title="Excluir">
                         <i class="fa fa-trash" aria-hidden="true"></i>
                     </a> -->
